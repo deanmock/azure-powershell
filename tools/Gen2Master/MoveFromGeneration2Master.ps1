@@ -106,12 +106,6 @@ Function Move-Generation2Master {
             $AccountsMetadata = Import-LocalizedData -BaseDirectory $AccountsModulePath -FileName "Az.Accounts.psd1"
             $RequiredModule = @(@{ModuleName = 'Az.Accounts'; ModuleVersion = $AccountsMetadata.ModuleVersion; })
         }
-        Write-Host "======================================================================================"
-        Write-Host $RequiredModule.Values
-        Write-Host $AccountsModulePath
-        Write-Host $DestParentPath
-        Write-Host $DestAccountsPath
-        Write-Host "======================================================================================"
         If ($Null -ne $RequiredModule)
         {
             $Psd1Metadata.RequiredModules = $RequiredModule

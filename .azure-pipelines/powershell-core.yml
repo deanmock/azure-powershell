@@ -11,10 +11,6 @@ variables:
   DebugLocalBuildTasks: true
   TimeoutInMinutes: 120
   IsGenerateBased: $[eq(variables['system.pullRequest.targetBranch'], 'generation')]
-  # ${{ if eq(variables['system.pullRequest.targetBranch'], 'generation') }}:
-  #   TimeoutInMinutes: 120
-  # ${{ if ne(variables['system.pullRequest.targetBranch'], 'generation') }}:
-  #   TimeoutInMinutes: 60
 
 trigger: none
 
@@ -30,7 +26,6 @@ jobs:
   displayName: Build
   condition: succeeded()
   timeoutInMinutes: 120
-  # timeoutInMinutes: ${{ variables.TimeoutInMinutes }}
   strategy:
     matrix:
       windows:
@@ -56,7 +51,7 @@ jobs:
   displayName: Analyze
   dependsOn: Build
   condition: succeeded()
-  timeoutInMinutes: 90
+  timeoutInMinutes: 120
   strategy:
     matrix:
       windows:
