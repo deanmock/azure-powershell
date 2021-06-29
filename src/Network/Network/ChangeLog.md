@@ -19,6 +19,8 @@
 --->
 
 ## Upcoming Release
+
+## Version 4.10.0
 * Updated cmdlets to enable specification of edge zone
     - `New-AzPublicIpPrefix`
     - `New-AzLoadBalancer`
